@@ -1,0 +1,43 @@
+@mixin scaleTiempo($tiempo){
+    transition: all $tiempo;
+}
+
+.footer {
+    background-color: #333; /* Color de fondo del footer */
+    color: white; /* Color de texto en el footer */
+    padding: 0px 20px; /* Espaciado interno del footer */
+    text-align: center;
+}
+
+.footer-banner {
+    background: url('../Utils/Images/fondoBaner.png');
+    color: white; /* Color de texto en el banner */
+    padding: 50px;
+}
+
+.botonFooterAct{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    padding: 8px 16px;
+    gap: 10px;
+    margin-right: 50px;
+    @include scaleTiempo(400ms);
+    border: none;
+    border-radius: 11px;
+    background:  #FF4133 !important;
+    @media (max-width:992px) {
+        margin-bottom: 5px;
+    }
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.logoFooter{
+    width: 70px;
+}
+
+.footerImgContacto{
+    margin-right: 15px;
+}

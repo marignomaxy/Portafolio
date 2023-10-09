@@ -1,0 +1,115 @@
+//Banner
+@mixin scaleTiempo($tiempo){
+  transition: all $tiempo;
+}
+
+.botonBannerAct{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 8px 16px;
+  gap: 10px;
+  margin-right: 50px;
+  @include scaleTiempo(400ms);
+  border: none;
+  border-radius: 11px;
+  background:  #CC0E00 !important;
+  @media (max-width:992px) {
+      margin-bottom: 5px;
+  }
+  &:hover{
+      transform: scale(1.1);
+  }
+}
+
+.botonBannerSec{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  @include scaleTiempo(400ms);
+  background: none !important;
+  border-color: #FF4133 !important;
+
+  &:hover{
+      transform: scale(1.1);
+      font-weight: 600;
+  }
+
+}
+
+.botonTexto{
+  margin-right: 10px;
+}
+
+.banner{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: url('../Utils/Images/fondoBaner.png');
+  background-size: cover;
+  padding: 50px;
+
+  h1{
+      color: #EFEFFF;
+  }
+
+}
+
+
+.negroDifuminado {
+  position: relative;
+  overflow: hidden;
+
+  img {
+      width: 100%; /* Establece el ancho al 100% para ocupar todo el espacio disponible */
+      object-fit: cover;
+      margin: 0; /* Elimina márgenes */
+      padding: 0;
+  }
+  
+
+  &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+      z-index: 1;
+  }
+
+  .leyendaProyectos {
+      background-color: rgba(49, 49, 84, 0.7); /* Fondo con opacidad del 70% */
+      padding: 5px 10px; /* Espaciado interno */
+      position: absolute;
+      margin-left: 2px;
+      top: 5px; /* Distancia desde el borde inferior */
+      left: 0;
+      border-radius: 11px; 
+
+      p{
+          margin: 0px !important;
+          color: #FFFFFF; /* Color del texto blanco */
+      }
+  }
+}
+
+/* Estilo para el carrusel */
+.carrouselStyle {
+    background-color: rgba(49, 49, 84, 0.7); /* Fondo con opacidad del 70% */
+    padding: 5px 10px; /* Espaciado interno */
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Distancia desde el borde inferior */
+    right: 0; /* Alinear a la derecha */
+
+    h3, p { /* Aplicar estilos a título y descripción */
+      margin: 0; /* Eliminar el margen predeterminado */
+      color: #FFFFFF; /* Color de texto blanco */
+    }
+}
+
+.imgCarrousel{
+  max-width: 500px !important;
+}

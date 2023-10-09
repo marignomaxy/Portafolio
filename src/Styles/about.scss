@@ -1,0 +1,33 @@
+.imagenPerfil {
+    max-width: 700px; /* Cambia a 100% para que sea responsive */
+    width: 100%; /* Añade un ancho del 100% para ajustar al contenedor */
+    max-height: 450px; /* Establece una altura máxima de 700px */
+    height: auto; 
+    display: block;
+    border-radius: 16px;
+}
+
+
+.colorAzul{
+    border-radius: 16px;
+    background-color: #CCF;
+    color: #003;
+    gap: 16px;
+    padding: 40px;
+}
+
+.colorAmarillo{
+    border-radius: 16px;
+    background-color: #FFF4CC;
+    color: #332800;
+    gap: 16px;
+    padding: 40px;
+}
+
+.colorVerde{
+    border-radius: 16px;
+    background-color: #CCFFF3;
+    color: #00664E;
+    gap: 16px;
+    padding: 40px;
+}
