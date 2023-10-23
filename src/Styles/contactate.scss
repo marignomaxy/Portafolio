@@ -1,0 +1,27 @@
+/* Contactame.css */
+
+.progress-bar {
+  list-style: none;
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 0;
+  width: 100%;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.circle.active {
+  background-color: #cc0e00;
+  color: #fff;
+}

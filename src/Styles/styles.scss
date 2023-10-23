@@ -1,23 +1,14 @@
-@use './nav.scss';
-@use './fonts.scss';
-@use './banner.scss';
-@use './home.scss';
-@use './footer.scss';
-@use './card.scss';
-@use './about.scss';
-
+@use "./nav.scss";
+@use "./fonts.scss";
+@use "./banner.scss";
+@use "./home.scss";
+@use "./footer.scss";
+@use "./card.scss";
+@use "./about.scss";
+@use "./master.scss";
+@use "./contactate.scss";
 //General
-
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
-
-
-
-
-
-
-
-
-

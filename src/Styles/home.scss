@@ -1,47 +1,39 @@
-@mixin scaleTiempo($tiempo){
-    transition: all $tiempo;
+@mixin scaleTiempo($tiempo) {
+  transition: all $tiempo;
 }
 
-.containerHome{
-    background-color: #1C1C30;
-    color:#B9B9C8;
+.containerHome {
+  background-color: #1c1c30;
+  color: #b9b9c8;
 }
 
-.imagenRetrato{
-    max-width: 700px; /* Cambia a 100% para que sea responsive */
-    width: 100%; /* Añade un ancho del 100% para ajustar al contenedor */
-    max-height: 450px; /* Establece una altura máxima de 700px */
-    height: auto; 
-    display: block;
+.imagenRetrato {
+  max-width: 700px; /* Cambia a 100% para que sea responsive */
+  width: 100%; /* Añade un ancho del 100% para ajustar al contenedor */
+  max-height: 450px; /* Establece una altura máxima de 700px */
+  height: auto;
+  display: block;
 }
 
-.colorH4{
-    color: #FF4133;
+.colorH4 {
+  color: #ff4133;
 }
-.contenedorTec{
-    img{
-        max-width: 50px;
-        margin-right: 16px;
+.contenedorTec {
+  img {
+    max-width: 80px;
+    margin-right: 22px;
+  }
+}
+
+.contenedorElegirTec {
+  background-color: #313154;
+  img {
+    max-width: 80px;
+    margin-right: 16px;
+    @include scaleTiempo(400ms);
+
+    &:hover {
+      transform: scale(1.1);
     }
+  }
 }
-
-.contenedorTec{
-    img{
-        max-width: 50px;
-        margin-right: 16px;
-    }
-}
-
-.contenedorElegirTec{
-    background-color: #313154;
-    img{
-        max-width: 80px;
-        margin-right: 16px;
-        @include scaleTiempo(400ms);
-
-        &:hover{
-            transform: scale(1.1);
-        }
-    }
-}
-
