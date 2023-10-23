@@ -65,6 +65,11 @@ function Navegador() {
                   Salir
                 </Button>
               </Nav.Link>
+              <Nav.Link>
+                <Button className="botonNav mx-auto" as={Link} to="/master">
+                  Master
+                </Button>
+              </Nav.Link>
             </>
           )}
         </Navbar.Collapse>
