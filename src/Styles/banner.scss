@@ -107,3 +107,8 @@
     color: #ffffff; /* Color de texto blanco */
   }
 }
+
+/* Mueve los indicadores del carrusel hacia abajo */
+.carousel-indicators {
+  bottom: 85%;
+}

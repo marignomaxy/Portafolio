@@ -20,8 +20,8 @@ function Banner({ items }) {
           <div className="col-xl-6 col-md-12">
             <div className="mb-auto mt-auto">
               <h1>
-                Soy Maximiliano Marigno y Soy Desarrollador full stack y
-                diseñador UX /UI
+                Soy Maximiliano Marigno,Desarrollador full stack y diseñador UX
+                /UI
               </h1>
               <div className="mt-5 d-flex justify-content-between align-items-center">
                 <Button
@@ -34,7 +34,12 @@ function Banner({ items }) {
                 >
                   Mira mis proyectos
                 </Button>
-                <Button className="botonBannerSec mx-auto" as={Link} to="/">
+                <Button
+                  className="botonBannerSec mx-auto"
+                  as={Link}
+                  to="/contactame"
+                  onClick={() => handleEnlaceClick("contactame")}
+                >
                   Contactame <img src={Arrow} alt="arrow" />
                 </Button>
               </div>

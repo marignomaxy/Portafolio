@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Modal, Form, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import DatePicker from "react-datepicker";
 import {
   crearPagina,
@@ -13,6 +13,7 @@ import {
   obtenerCertificadoPorNombre,
 } from "../services/certificadosServices";
 import { parseISO } from "date-fns";
+import { AuthContext } from "../Context/AuthContext";
 
 function ModalPagCer({
   showModal,
@@ -30,6 +31,7 @@ function ModalPagCer({
   const [url, setUrl] = useState("");
   const [pagina_id, setPagina_id] = useState("");
   const [certificado_id, setCertificado_id] = useState("");
+  const context = useContext(AuthContext);
 
   useEffect(() => {
     if (elementoAEditar) {
@@ -78,6 +80,7 @@ function ModalPagCer({
 
   const handleFormSubmit = async () => {
     try {
+      const token = context.token;
       const formData = new FormData();
       formData.append("nombre", nombre);
       formData.append("descripcion", descripcion);
@@ -92,11 +95,11 @@ function ModalPagCer({
 
         if (elementoAEditar) {
           // Es una actualización, realiza la solicitud PUT
-          await actualizarPagina(formData, pagina_id);
+          await actualizarPagina(formData, pagina_id, token);
           console.log("Página actualizada");
         } else {
           // Es una creación, realiza la solicitud POST
-          await crearPagina(formData);
+          await crearPagina(formData, token);
           console.log("Página creada");
         }
       } else if (tipo === "certificado") {
@@ -104,11 +107,11 @@ function ModalPagCer({
         formData.append("fecha_finalizacion", fecha.toISOString());
         if (elementoAEditar) {
           // Es una actualización, realiza la solicitud PUT
-          await actualizarCertificado(formData, certificado_id);
+          await actualizarCertificado(formData, certificado_id, token);
           console.log("Página actualizada");
         } else {
           // Es una creación, realiza la solicitud POST
-          await crearCertificado(formData);
+          await crearCertificado(formData, token);
           console.log("Página creada");
         }
       }

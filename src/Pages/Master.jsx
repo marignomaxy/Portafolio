@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { obtenerPaginas, borrarPagina } from "../services/paginasServices";
 import {
   obtenerCertificados,
   borrarCertificado,
 } from "../services/certificadosServices";
 import ModalCreacion from "../Components/ModalPagCer";
+import { AuthContext } from "../Context/AuthContext";
 
 function Master() {
   const [certificados, setCertificados] = useState([]);
@@ -12,6 +13,7 @@ function Master() {
   const [showModal, setShowModal] = useState(false);
   const [tipo, setTipo] = useState("");
   const [elementoAEditar, setElementoAEditar] = useState(null);
+  const context = useContext(AuthContext);
 
   const handleShowModalCreacionCertificado = () => {
     setTipo("certificado");
@@ -19,12 +21,14 @@ function Master() {
   };
 
   const handleBorrarCertificado = (id) => {
-    borrarCertificado(id);
+    const token = context.token;
+    borrarCertificado(id, token);
     actualizar();
   };
 
   const handleBorrarPagina = (id) => {
-    borrarPagina(id);
+    const token = context.token;
+    borrarPagina(id, token);
     actualizar();
   };
 
@@ -70,7 +74,7 @@ function Master() {
     actualizar();
   }, []);
 
-  return (
+  return context.login ? (
     <div className="container">
       <h2>Certificados</h2>
       <table className="table">
@@ -181,6 +185,10 @@ function Master() {
         tipo={tipo}
         elementoAEditar={elementoAEditar}
       />
+    </div>
+  ) : (
+    <div>
+      <h2>Acceso Denegado, debe loguearse</h2>
     </div>
   );
 }

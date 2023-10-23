@@ -4,9 +4,11 @@ import Imagen from "../Utils/Images/Logo.png";
 import Button from "react-bootstrap/Button";
 import { useContext } from "react";
 import { EnlaceActivoContext } from "../Context/contexEnlace";
+import { AuthContext } from "../Context/AuthContext";
 
 function Navegador() {
   const { enlaceActivo, setEnlaceActivo } = useContext(EnlaceActivoContext);
+  const context = useContext(AuthContext);
 
   const handleEnlaceClick = (nombreEnlace) => {
     setEnlaceActivo(nombreEnlace);
@@ -46,9 +48,25 @@ function Navegador() {
               Acerca de mi
             </Nav.Link>
           </Nav>
-          <Nav.Link as={Link} to="/contactame">
+          <Nav.Link
+            as={Link}
+            to="/contactame"
+            onClick={() => handleEnlaceClick("contactame")}
+          >
             <Button className="botonNav mx-auto">Contactame</Button>
           </Nav.Link>
+          {context.login && (
+            <>
+              <Nav.Link>
+                <Button
+                  className="botonNav mx-auto"
+                  onClick={context.handlerLogout}
+                >
+                  Salir
+                </Button>
+              </Nav.Link>
+            </>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
