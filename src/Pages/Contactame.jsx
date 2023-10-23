@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import { enviarCorreo } from "../services/mail";
+import AlertCustom from "../Components/AlertCustom";
 
 function Contactame() {
   const [step, setStep] = useState(1);
+  const [alert, setAlert] = useState({ variant: "", text: "" });
   const {
     register,
     handleSubmit,
@@ -40,14 +42,17 @@ function Contactame() {
         console.log(data);
         const response = await enviarCorreo(data);
         console.log("Mail enviado", response);
+        setAlert({ variant: "success", text: `Email enviado` });
       } catch (error) {
         console.log("error al enviar el email", error);
+        setAlert({ variant: "danger", text: `Error al enviar el Email` });
       }
     }
   };
 
   return (
     <div className="container mt-5">
+      <AlertCustom {...alert} />
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <ul className="nav nav-pills justify-content-around mb-3">
