@@ -136,6 +136,9 @@ function Footer() {
           </div>
         </div>
       </div>
+      <Link to="/login" className="text-decoration-none text-dark">
+        .
+      </Link>
     </footer>
   );
 }
