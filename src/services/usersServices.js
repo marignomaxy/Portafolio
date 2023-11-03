@@ -1,5 +1,5 @@
-import axios from "axios";
+import axios from 'axios'
 
 export const obtenerUsuario = (data) => {
-  return axios.post(`https://apiportafolio.onrender.com/usuarios`, data);
-};
+  return axios.post(`https://apiportafolio-production-5924.up.railway.app/usuarios`, data)
+}

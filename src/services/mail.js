@@ -1,5 +1,5 @@
-import axios from "axios";
+import axios from 'axios'
 
 export const enviarCorreo = (data) => {
-  return axios.post(`https://apiportafolio.onrender.com/enviarEmail`, data);
-};
+  return axios.post(`https://apiportafolio-production-5924.up.railway.app/enviarEmail`, data)
+}

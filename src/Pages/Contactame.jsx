@@ -1,54 +1,52 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import Form from "react-bootstrap/Form";
-import { enviarCorreo } from "../services/mail";
-import AlertCustom from "../Components/AlertCustom";
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import Form from 'react-bootstrap/Form'
+import { enviarCorreo } from '../services/mail'
+import AlertCustom from '../Components/AlertCustom'
 
 function Contactame() {
-  const [step, setStep] = useState(1);
-  const [alert, setAlert] = useState({ variant: "", text: "" });
+  const [step, setStep] = useState(1)
+  const [alert, setAlert] = useState({ variant: '', text: '' })
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm()
   const [formData, setFormData] = useState({
-    nombre: "",
-    apellido: "",
-    telefono: "",
-    destinatario: "",
-    mensaje: "",
-  });
+    nombre: '',
+    apellido: '',
+    telefono: '',
+    destinatario: '',
+    mensaje: '',
+  })
 
   const pasos = [
-    { numero: 1, label: "Información Básica" },
-    { numero: 2, label: "Mensaje" },
-    { numero: 3, label: "Resumen" },
-  ];
+    { numero: 1, label: 'Información Básica' },
+    { numero: 2, label: 'Mensaje' },
+    { numero: 3, label: 'Resumen' },
+  ]
 
   const handleStepChange = (nextStep) => {
     if (nextStep >= 1 && nextStep <= pasos.length) {
-      setStep(nextStep);
+      setStep(nextStep)
     }
-  };
+  }
 
   const onSubmit = async (data) => {
-    setFormData(data);
-    handleStepChange(step + 1);
-    console.log("paso", step);
-    if (step === 2) {
+    setFormData(data)
+    handleStepChange(step + 1)
+    console.log('paso', step)
+    if (step === 3) {
       try {
-        console.log(data);
-        const response = await enviarCorreo(data);
-        console.log("Mail enviado", response);
-        setAlert({ variant: "success", text: `Email enviado` });
+        console.log(data)
+        await enviarCorreo(data)
+        setAlert({ variant: 'success', text: `Email enviado` })
       } catch (error) {
-        console.log("error al enviar el email", error);
-        setAlert({ variant: "danger", text: `Error al enviar el Email` });
+        setAlert({ variant: 'danger', text: `Error al enviar el Email` })
       }
     }
-  };
+  }
 
   return (
     <div className="container mt-5">
@@ -58,10 +56,7 @@ function Contactame() {
           <ul className="nav nav-pills justify-content-around mb-3">
             {pasos.map((paso) => (
               <li key={paso.numero} className={`nav-item`}>
-                <span
-                  className={`circle ${step === paso.numero ? "active" : ""}`}
-                  onClick={() => handleStepChange(paso.numero)}
-                >
+                <span className={`circle ${step === paso.numero ? 'active' : ''}`} onClick={() => handleStepChange(paso.numero)}>
                   {paso.numero}
                 </span>
               </li>
@@ -77,62 +72,51 @@ function Contactame() {
                     <Form.Control
                       type="text"
                       placeholder="Ingrese su Nombre"
-                      {...register("nombre", {
-                        required: "El Campo Es Obligatorio",
+                      {...register('nombre', {
+                        required: 'El Campo Es Obligatorio',
                       })}
                     />
-                    <Form.Text className="text-muted">
-                      {errors.nombre && <span>{errors.nombre.message}</span>}
-                    </Form.Text>
+                    <Form.Text className="text-muted">{errors.nombre && <span>{errors.nombre.message}</span>}</Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Apellido:</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Ingrese su Apellido"
-                      {...register("apellido", {
-                        required: "El Campo Es Obligatorio",
+                      {...register('apellido', {
+                        required: 'El Campo Es Obligatorio',
                       })}
                     />
-                    <Form.Text className="text-muted">
-                      {errors.apellido && (
-                        <span>{errors.apellido.message}</span>
-                      )}
-                    </Form.Text>
+                    <Form.Text className="text-muted">{errors.apellido && <span>{errors.apellido.message}</span>}</Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Correo:</Form.Label>
                     <Form.Control
                       type="email"
                       placeholder="Ingrese su correo"
-                      {...register("email", {
-                        required: "El Campo Es Obligatorio",
+                      {...register('email', {
+                        required: 'El Campo Es Obligatorio',
+                        pattern: {
+                          value: /\S+@\S+\.\S+/,
+                          message: 'El correo debe ser válido',
+                        },
                       })}
                     />
-                    <Form.Text className="text-muted">
-                      {errors.email && <span>{errors.email.message}</span>}
-                    </Form.Text>
+                    <Form.Text className="text-muted">{errors.email && <span>{errors.email.message}</span>}</Form.Text>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Telefono:</Form.Label>
                     <Form.Control
                       type="number"
                       placeholder="Ingrese su número de teléfono"
-                      {...register("telefono", {
-                        required: "El Campo Es Obligatorio",
+                      {...register('telefono', {
+                        required: 'El Campo Es Obligatorio',
                       })}
                     />
-                    <Form.Text className="text-muted">
-                      {errors.telefono && (
-                        <span>{errors.telefono.message}</span>
-                      )}
-                    </Form.Text>
+                    <Form.Text className="text-muted">{errors.telefono && <span>{errors.telefono.message}</span>}</Form.Text>
                   </Form.Group>
                   <div className="d-flex justify-content-center align-items-center mb-5">
-                    <button
-                      className="botonCards btn btn-primary"
-                      type="submit"
-                    >
+                    <button className="botonCards btn btn-primary" type="submit">
                       Siguiente
                     </button>
                   </div>
@@ -149,25 +133,17 @@ function Contactame() {
                     <Form.Control
                       as="textarea"
                       rows={3}
-                      {...register("mensaje", {
-                        required: "El Campo Es Obligatorio",
+                      {...register('mensaje', {
+                        required: 'El Campo Es Obligatorio',
                       })}
                     />
-                    <Form.Text className="text-muted">
-                      {errors.mensaje && <span>{errors.mensaje.message}</span>}
-                    </Form.Text>
+                    <Form.Text className="text-muted">{errors.mensaje && <span>{errors.mensaje.message}</span>}</Form.Text>
                   </Form.Group>
                   <div className="d-flex justify-content-around align-items-center mb-5">
-                    <button
-                      className="btn btn-secondary"
-                      onClick={() => handleStepChange(1)}
-                    >
+                    <button className="btn btn-secondary" onClick={() => handleStepChange(1)}>
                       Anterior
                     </button>
-                    <button
-                      className="botonCards btn btn-primary"
-                      type="submit"
-                    >
+                    <button className="botonCards btn btn-primary" type="submit">
                       Siguiente
                     </button>
                   </div>
@@ -194,15 +170,16 @@ function Contactame() {
                   <strong>Mensaje:</strong> {formData.mensaje}
                 </div>
                 <div className="d-flex justify-content-around align-items-center mb-5">
-                  <button
-                    className="btn btn-secondary me-3"
-                    onClick={() => handleStepChange(2)}
-                  >
+                  <button className="btn btn-secondary me-3" onClick={() => handleStepChange(2)}>
                     Anterior
                   </button>
-                  <button className="btn btn-success" type="submit">
-                    Enviar
-                  </button>
+                  <>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                      <button className="btn btn-success" type="submit" onClick={console.log('toque')}>
+                        Enviar
+                      </button>
+                    </Form>
+                  </>
                 </div>
               </div>
             )}
@@ -210,7 +187,7 @@ function Contactame() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contactame;
+export default Contactame
