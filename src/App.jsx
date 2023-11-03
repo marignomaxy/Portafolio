@@ -1,14 +1,18 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import Public from "./Routes/Public";
-import Navegador from "./Components/Navegador";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Styles/styles.scss";
-import EnlaceProvider from "./Context/contexEnlace";
-import Footer from "./Components/Footer";
-import "react-datepicker/dist/react-datepicker.css";
-import AuthProvider from "./Context/AuthContext";
+import { BrowserRouter as Router } from 'react-router-dom'
+import Public from './Routes/Public'
+import Navegador from './Components/Navegador'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './Styles/styles.scss'
+import EnlaceProvider from './Context/contexEnlace'
+import Footer from './Components/Footer'
+import 'react-datepicker/dist/react-datepicker.css'
+import AuthProvider from './Context/AuthContext'
+import { useEffect } from 'react'
 
 function App() {
+  useEffect(() => {
+    document.title = 'Portafolio Maximiliano Marigno'
+  }, [])
   return (
     <Router>
       <AuthProvider>
@@ -19,7 +23,7 @@ function App() {
         </EnlaceProvider>
       </AuthProvider>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
