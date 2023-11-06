@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Carousel from "react-bootstrap/Carousel";
+import Carousel from 'react-bootstrap/Carousel'
 
 function CarrouselImg({ items }) {
   return (
@@ -12,13 +12,12 @@ function CarrouselImg({ items }) {
             <Carousel.Caption className="carrouselStyle">
               <div>
                 <h3>{item.nombre_pagina}</h3>
-                <h3>{item.descripcion}</h3>
               </div>
             </Carousel.Caption>
           </Carousel.Item>
         ))}
     </Carousel>
-  );
+  )
 }
 
-export default CarrouselImg;
+export default CarrouselImg
