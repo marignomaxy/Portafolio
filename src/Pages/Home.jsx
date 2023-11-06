@@ -76,7 +76,19 @@ function Home() {
                   </Nav.Link>
                   <h4>Tecnologías y herramientas</h4>
                   <div className="d-flex contenedorTec">
-                    <div className="row">{/* Aquí van las imágenes de tecnologías y herramientas */}</div>
+                    <div className="row">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png" alt="javascript" />
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="typescript" />
+                      <img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="react js" />
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" alt="angular" />
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/590px-Node.js_logo.svg.png" alt="node js" />
+                      <img src="https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" alt="javaSpring" />
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" alt="sass" />
+                        <img src="https://www.c3ntro.com/hubfs/logo-aws-blanco%20(1).png" alt="aws" />
+                        <img src="https://variwiki.com/images/a/a1/Docker.png" alt="docker" />
+                      </div>
+                    </div>
                   </div>
                 </Col>
               </Row>
