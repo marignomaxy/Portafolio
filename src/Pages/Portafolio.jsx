@@ -83,7 +83,15 @@ function Portafolio() {
               {/* Cards */}
               <Row>
                 {paginas.map((pagina) => (
-                  <Cards key={pagina.pagina_id} title={pagina.nombre_pagina} description={pagina.descripcion} image={pagina.ruta_foto} fecha={pagina.fecha_fin} url={pagina.url_pagina} />
+                  <Cards
+                    key={pagina.pagina_id}
+                    title={pagina.nombre_pagina}
+                    description={pagina.descripcion}
+                    image={pagina.ruta_foto}
+                    fecha={pagina.fecha_fin}
+                    url={pagina.url_pagina}
+                    tecnologia={pagina.tecnologia}
+                  />
                 ))}
               </Row>
             </Container>
