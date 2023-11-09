@@ -73,7 +73,7 @@ function Master() {
 
   return context.login ? (
     <div className="container">
-      <h2>Certificado</h2>
+      <h2>Certificados</h2>
       <table className="table">
         <thead>
           <tr>
